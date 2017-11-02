@@ -102,6 +102,7 @@ class App extends React.Component<Props, State> {
                   })
               }
           </p>
+          <div>Graphics are generated using <a href="http://cube.crider.co.uk/visualcube.php">VisualCube</a></div>
 
       </div>
     );
