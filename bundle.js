@@ -1018,7 +1018,7 @@ var App = /** @class */ (function (_super) {
      */
     App.prototype.incCurrRotateCodesIdx = function (inc) {
         var inced = this.state.currRotateCodesIdx + inc;
-        if (0 <= inced && inced < this.state.algorithm.length) {
+        if (0 <= inced && inced <= this.state.algorithm.length) {
             this.setState({
                 currRotateCodesIdx: inced
             });
@@ -1030,7 +1030,7 @@ var App = /** @class */ (function (_super) {
             React.createElement("h1", null, "Step-by-Step Rubik's Cube scrambler"),
             React.createElement("p", null,
                 React.createElement("input", { defaultValue: this.state.algorithm, onChange: this.onChangeAlgorithm.bind(this), style: { width: '600px' }, placeholder: "Input algorithm" })),
-            React.createElement("img", { src: "http://cube.crider.co.uk/visualcube.php?fmt=svg&size=300&pzl=3&alg=" + this.getRotateCodes.bind(this)().take(this.state.currRotateCodesIdx).join("") }),
+            React.createElement("img", { src: "http://cube.crider.co.uk/visualcube.php?fmt=svg&size=300&pzl=3&sch=wrgyob&alg=" + this.getRotateCodes.bind(this)().take(this.state.currRotateCodesIdx).join("") }),
             React.createElement("button", { onClick: function () { return _this.incCurrRotateCodesIdx.bind(_this)(-1); } }, "<"),
             React.createElement("button", { onClick: function () { return _this.incCurrRotateCodesIdx.bind(_this)(+1); } }, ">"),
             React.createElement("p", null,
@@ -1039,7 +1039,13 @@ var App = /** @class */ (function (_super) {
                 }),
                 this.getRotateCodes.bind(this)().skip(this.state.currRotateCodesIdx).map(function (e, idx) {
                     return React.createElement("span", { key: idx, style: { color: 'gray', fontSize: '20px', marginRight: '10px' } }, e);
-                }))));
+                })),
+            "Click ",
+            React.createElement("a", { href: "https://ruwix.com/puzzle-scramble-generator/?type=rubiks-cube" }, "Twisty Puzzle Scramble Generator"),
+            " to get algorithms",
+            React.createElement("div", null,
+                "Graphics are generated using ",
+                React.createElement("a", { href: "http://cube.crider.co.uk/visualcube.php" }, "VisualCube"))));
     };
     return App;
 }(React.Component));
