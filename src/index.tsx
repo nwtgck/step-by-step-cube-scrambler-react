@@ -102,6 +102,7 @@ class App extends React.Component<Props, State> {
                   })
               }
           </p>
+          Click <a href="https://ruwix.com/puzzle-scramble-generator/?type=rubiks-cube">Twisty Puzzle Scramble Generator</a> to get algorithms
           <div>Graphics are generated using <a href="http://cube.crider.co.uk/visualcube.php">VisualCube</a></div>
 
       </div>
