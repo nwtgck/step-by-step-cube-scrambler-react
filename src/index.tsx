@@ -66,7 +66,7 @@ class App extends React.Component<Props, State> {
   incCurrRotateCodesIdx(inc: number){ // NOTE: inc can be negative value
       const inced = this.state.currRotateCodesIdx + inc;
 
-      if(0 <= inced && inced < this.state.algorithm.length){
+      if(0 <= inced && inced <= this.state.algorithm.length){
           this.setState({
               currRotateCodesIdx: inced
           });
@@ -86,7 +86,7 @@ class App extends React.Component<Props, State> {
             />
         </p>
 
-          <img src={`http://cube.crider.co.uk/visualcube.php?fmt=svg&size=300&pzl=3&alg=${this.getRotateCodes.bind(this)().take(this.state.currRotateCodesIdx).join("")}`} />
+          <img src={`http://cube.crider.co.uk/visualcube.php?fmt=svg&size=300&pzl=3&sch=wrgyob&alg=${this.getRotateCodes.bind(this)().take(this.state.currRotateCodesIdx).join("")}`} />
           <button onClick={() => this.incCurrRotateCodesIdx.bind(this)(-1)}>{"<"}</button>
           <button onClick={() => this.incCurrRotateCodesIdx.bind(this)(+1)}>{">"}</button>
 
