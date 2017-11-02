@@ -19,7 +19,20 @@ class App extends React.Component<Props, State> {
     this.state = {
         algorithm         : "U L' F U R L' U R D F D' B D L B F L B' D L' B L D L' U",
         currRotateCodesIdx: 0
-    }
+    };
+
+    document.addEventListener('keydown', (event) => {
+        switch (event.key) {
+            case 'ArrowLeft':
+                this.incCurrRotateCodesIdx(-1);
+                break;
+            case 'ArrowRight':
+                this.incCurrRotateCodesIdx(+1);
+                break;
+        }
+    });
+
+
   }
 
   onChangeAlgorithm(e: any){
@@ -80,12 +93,12 @@ class App extends React.Component<Props, State> {
           <p>
               {
                   this.getRotateCodes.bind(this)().take(this.state.currRotateCodesIdx).map((e, idx) => {
-                      return <span key={idx} style={{color: 'black', fontWeight: 'bold', fontSize: '20px'}}>{e}</span>
+                      return <span key={idx} style={{color: 'black', fontWeight: 'bold', fontSize: '30px', marginRight: '5px'}}>{e}</span>
                   })
               }
               {
                   this.getRotateCodes.bind(this)().skip(this.state.currRotateCodesIdx).map((e, idx) => {
-                      return <span key={idx} style={{color: 'gray'}}>{e}</span>
+                      return <span key={idx} style={{color: 'gray', fontSize: '20px', marginRight: '10px'}}>{e}</span>
                   })
               }
           </p>
