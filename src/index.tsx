@@ -66,7 +66,7 @@ class App extends React.Component<Props, State> {
   incCurrRotateCodesIdx(inc: number){ // NOTE: inc can be negative value
       const inced = this.state.currRotateCodesIdx + inc;
 
-      if(0 <= inced && inced <= this.state.algorithm.length){
+      if(0 <= inced && inced <= this.getRotateCodes().size){
           this.setState({
               currRotateCodesIdx: inced
           });
