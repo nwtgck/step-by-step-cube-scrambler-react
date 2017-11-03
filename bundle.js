@@ -1018,7 +1018,7 @@ var App = /** @class */ (function (_super) {
      */
     App.prototype.incCurrRotateCodesIdx = function (inc) {
         var inced = this.state.currRotateCodesIdx + inc;
-        if (0 <= inced && inced <= this.state.algorithm.length) {
+        if (0 <= inced && inced <= this.getRotateCodes().size) {
             this.setState({
                 currRotateCodesIdx: inced
             });
