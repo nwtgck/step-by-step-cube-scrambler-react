@@ -10,8 +10,9 @@ interface Props {
 
 // Typed State
 interface State {
-    algorithm: string;
+    algorithm         : string;
     currRotateCodesIdx: number;
+    algorithmLength   : number;
 }
 
 class App extends React.Component<Props, State> {
@@ -19,7 +20,8 @@ class App extends React.Component<Props, State> {
     super(props);
     this.state = {
         algorithm         : "U L' F U R L' U R D F D' B D L B F L B' D L' B L D L' U",
-        currRotateCodesIdx: 0
+        currRotateCodesIdx: 0,
+        algorithmLength   : 25
     };
 
     document.addEventListener('keydown', (event) => {
@@ -36,7 +38,7 @@ class App extends React.Component<Props, State> {
 
   }
 
-  onChangeAlgorithm(e: any){
+  onChangeAlgorithm(e: any){ // TODO Not to use any
       // Get input
       const algorithm = e.target.value;
 
@@ -49,6 +51,14 @@ class App extends React.Component<Props, State> {
           currRotateCodesIdx: currRotateCodesIdx
       });
   }
+
+    onChangeAlgorithmLength(e: any){ // TODO Not to use any
+      const algorithmLength = e.target.value;
+
+      this.setState({
+          algorithmLength: algorithmLength
+      });
+    }
 
     /**
      * Generate rotate-codes
@@ -97,7 +107,7 @@ class App extends React.Component<Props, State> {
      */
   setScrambledAlgorithm(){
       this.setState({
-          algorithm : cubeScrambler().scramble().join(' ')
+          algorithm : cubeScrambler().scramble(this.state.algorithmLength).join(' ')
       });
   }
 
@@ -124,6 +134,7 @@ class App extends React.Component<Props, State> {
               <button onClick={() => this.setEndRotateCodesIdx.bind(this)()}>{">>"}</button>
           </p>
           <p>
+              Length: <input type="number" defaultValue={this.state.algorithmLength.toString()} onChange={this.onChangeAlgorithmLength.bind(this)} />
               <button onClick={() => this.setScrambledAlgorithm.bind(this)()}>{"Scramble!"}</button>
           </p>
 
