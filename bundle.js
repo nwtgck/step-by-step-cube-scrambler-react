@@ -979,7 +979,8 @@ var App = /** @class */ (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.state = {
             algorithm: "U L' F U R L' U R D F D' B D L B F L B' D L' B L D L' U",
-            currRotateCodesIdx: 0
+            currRotateCodesIdx: 0,
+            algorithmLength: 25
         };
         document.addEventListener('keydown', function (event) {
             switch (event.key) {
@@ -1002,6 +1003,12 @@ var App = /** @class */ (function (_super) {
         this.setState({
             algorithm: algorithm,
             currRotateCodesIdx: currRotateCodesIdx
+        });
+    };
+    App.prototype.onChangeAlgorithmLength = function (e) {
+        var algorithmLength = e.target.value;
+        this.setState({
+            algorithmLength: algorithmLength
         });
     };
     /**
@@ -1046,7 +1053,7 @@ var App = /** @class */ (function (_super) {
      */
     App.prototype.setScrambledAlgorithm = function () {
         this.setState({
-            algorithm: cubeScrambler().scramble().join(' ')
+            algorithm: cubeScrambler().scramble(this.state.algorithmLength).join(' ')
         });
     };
     App.prototype.render = function () {
@@ -1063,6 +1070,8 @@ var App = /** @class */ (function (_super) {
                 React.createElement("button", { onClick: function () { return _this.setStartRotateCodesIdx.bind(_this)(); } }, "<<"),
                 React.createElement("button", { onClick: function () { return _this.setEndRotateCodesIdx.bind(_this)(); } }, ">>")),
             React.createElement("p", null,
+                "Length: ",
+                React.createElement("input", { type: "number", defaultValue: this.state.algorithmLength.toString(), onChange: this.onChangeAlgorithmLength.bind(this) }),
                 React.createElement("button", { onClick: function () { return _this.setScrambledAlgorithm.bind(_this)(); } }, "Scramble!")),
             React.createElement("p", null,
                 this.getRotateCodes.bind(this)().take(this.state.currRotateCodesIdx).map(function (e, idx) {
@@ -26334,8 +26343,8 @@ module.exports = function(){
 			return state.join("");
 		},
 		// Scramble the cube
-		scramble: function () {
-			var count = 0, total = 25, state, prevState = cube.states[cube.states.length - 1],
+		scramble: function (total = 25) {
+			var count = 0, state, prevState = cube.states[cube.states.length - 1],
 			move, moves = [], modifiers = ["", "'", "2"];
 			while (count < total) {
 				// Generate a random move
