@@ -74,6 +74,27 @@ class App extends React.Component<Props, State> {
       }
   }
 
+    /**
+     * Set Rotate codes index to start position
+     */
+  setStartRotateCodesIdx(){
+      this.setState({
+          currRotateCodesIdx: 0
+      });
+  }
+
+    /**
+     * Set Rotate codes index to end position
+     */
+    setEndRotateCodesIdx(){
+        this.setState({
+            currRotateCodesIdx: this.getRotateCodes().size
+        });
+    }
+
+    /**
+     * Set random algorithm
+     */
   setScrambledAlgorithm(){
       this.setState({
           algorithm : cubeScrambler().scramble().join(' ')
@@ -97,6 +118,10 @@ class App extends React.Component<Props, State> {
           <p>
               <button onClick={() => this.incCurrRotateCodesIdx.bind(this)(-1)}>{"<"}</button>
               <button onClick={() => this.incCurrRotateCodesIdx.bind(this)(+1)}>{">"}</button>
+          </p>
+          <p>
+              <button onClick={() => this.setStartRotateCodesIdx.bind(this)()}>{"<<"}</button>
+              <button onClick={() => this.setEndRotateCodesIdx.bind(this)()}>{">>"}</button>
           </p>
           <p>
               <button onClick={() => this.setScrambledAlgorithm.bind(this)()}>{"Scramble!"}</button>
