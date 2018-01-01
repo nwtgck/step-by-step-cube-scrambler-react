@@ -1,6 +1,6 @@
 {
   "name": "step-by-step-cube-scrambler-react",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -28,6 +28,7 @@
     "webpack-dev-server": "^2.9.3"
   },
   "dependencies": {
+    "cube-scrambler": "^1.1.0",
     "immutable": "^3.8.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"

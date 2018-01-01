@@ -1,5 +1,7 @@
 # Step-by-Step Rubik's Cube Scrambler
 
+![v1.1.0 demo image](./demo-images/v1.1.0.gif)
+
 ## Page
 
 https://nwtgck.github.io/step-by-step-cube-scrambler-react/

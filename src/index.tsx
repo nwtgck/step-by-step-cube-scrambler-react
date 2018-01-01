@@ -1,6 +1,7 @@
-import * as React      from 'react';
-import * as ReactDOM   from 'react-dom';
-import {List}          from 'immutable'
+import * as React         from 'react';
+import * as ReactDOM      from 'react-dom';
+import {List}             from 'immutable'
+import * as cubeScrambler from 'cube-scrambler';
 
 // Typed Props
 interface Props {
@@ -73,6 +74,33 @@ class App extends React.Component<Props, State> {
       }
   }
 
+    /**
+     * Set Rotate codes index to start position
+     */
+  setStartRotateCodesIdx(){
+      this.setState({
+          currRotateCodesIdx: 0
+      });
+  }
+
+    /**
+     * Set Rotate codes index to end position
+     */
+    setEndRotateCodesIdx(){
+        this.setState({
+            currRotateCodesIdx: this.getRotateCodes().size
+        });
+    }
+
+    /**
+     * Set random algorithm
+     */
+  setScrambledAlgorithm(){
+      this.setState({
+          algorithm : cubeScrambler().scramble().join(' ')
+      });
+  }
+
   render () {
     return (
       <div>
@@ -87,8 +115,18 @@ class App extends React.Component<Props, State> {
         </p>
 
           <img src={`http://cube.crider.co.uk/visualcube.php?fmt=svg&size=300&pzl=3&sch=wrgyob&alg=${this.getRotateCodes.bind(this)().take(this.state.currRotateCodesIdx).join("")}`} />
-          <button onClick={() => this.incCurrRotateCodesIdx.bind(this)(-1)}>{"<"}</button>
-          <button onClick={() => this.incCurrRotateCodesIdx.bind(this)(+1)}>{">"}</button>
+          <p>
+              <button onClick={() => this.incCurrRotateCodesIdx.bind(this)(-1)}>{"<"}</button>
+              <button onClick={() => this.incCurrRotateCodesIdx.bind(this)(+1)}>{">"}</button>
+          </p>
+          <p>
+              <button onClick={() => this.setStartRotateCodesIdx.bind(this)()}>{"<<"}</button>
+              <button onClick={() => this.setEndRotateCodesIdx.bind(this)()}>{">>"}</button>
+          </p>
+          <p>
+              <button onClick={() => this.setScrambledAlgorithm.bind(this)()}>{"Scramble!"}</button>
+          </p>
+
 
           <p>
               {
