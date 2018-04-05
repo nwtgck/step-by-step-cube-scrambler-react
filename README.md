@@ -1,4 +1,5 @@
 # Step-by-Step Rubik's Cube Scrambler
+[![Build Status](https://travis-ci.org/nwtgck/step-by-step-cube-scrambler-react.svg?branch=develop)](https://travis-ci.org/nwtgck/step-by-step-cube-scrambler-react)
 
 ![v1.1.0 demo image](./demo-images/v1.1.0.gif)
 
