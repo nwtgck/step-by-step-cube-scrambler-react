@@ -16,8 +16,20 @@ https://nwtgck.github.io/step-by-step-cube-scrambler-react/
 ```bash
 $ cd <this repo>
 $ npm install
+$ npm start
+```
+
+Then you can access to http://localhost:8080/
+
+## How to build the server
+
+```bash
+$ cd <this repo>
+$ npm install
 $ npm run build
 ```
+
+Then you can have `./build/index.html` and `./build/bundle.js`.
 
 ## How to deploy the server to `gh-pages`
 
