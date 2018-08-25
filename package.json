@@ -21,11 +21,11 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "gh-pages": "^1.0.0",
-    "html-webpack-plugin": "^2.30.1",
-    "ts-loader": "^3.1.1",
-    "typescript": "^2.6.1",
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.3"
+    "html-webpack-plugin": "^3.2.0",
+    "ts-loader": "^4.5.0",
+    "typescript": "^3.0.1",
+    "webpack": "^4.17.1",
+    "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
     "cube-scrambler": "github:nwtgck/cube-scrambler#b1a9b442e9c7754fd573bf5e7c1208a6fb00fca9",
