@@ -30,7 +30,7 @@
   "dependencies": {
     "cube-scrambler": "github:nwtgck/cube-scrambler#b1a9b442e9c7754fd573bf5e7c1208a6fb00fca9",
     "immutable": "^3.8.2",
-    "react": "^16.0.0",
+    "react": "^17.0.1",
     "react-dom": "^16.0.0"
   }
 }
