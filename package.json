@@ -25,7 +25,7 @@
     "ts-loader": "^3.1.1",
     "typescript": "^3.4.4",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.3"
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "cube-scrambler": "github:nwtgck/cube-scrambler#b1a9b442e9c7754fd573bf5e7c1208a6fb00fca9",
